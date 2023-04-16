@@ -1,0 +1,69 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html , body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+}
+
+.loader{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    transform-origin: 50% 125%;
+    animation: moveY 1s infinite linear;
+}
+
+.loader::before , .loader::after{
+    content: '';
+    flex: 1;
+    background-color: #eee;
+    transform-origin: 0% 100%;
+    border-radius: 20px;
+    animation: rotateX 1s infinite linear;
+}
+
+.loader::before{
+    transform-origin: 100% 100%;
+    animation-name: rotateRX;
+}
+
+@keyframes moveY{
+    0%,25%{
+        transform: translateY(0) scale(1);
+    }
+    49%{
+        transform: translateY(-75%) scale(1);
+    }
+    50%{
+        transform: translateY(-75%) scale(-1);
+    }
+    75%,100%{
+        transform: translateY(-150%) scale(-1);
+    }
+}
+
+@keyframes rotateX{
+    25%,75%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes rotateRX{
+    25%,75%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(-90deg);
+    }
+}
